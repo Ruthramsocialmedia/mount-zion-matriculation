@@ -3,18 +3,18 @@
 ## Media
 
 ### Title
-panorama_E54F76BB_F4C0_B2E4_41E4_143280177A6B.label = Assembly Hall
-panorama_E54FF2D6_F4C0_D2AC_41D3_FF463E75CA37.label = Biology Lab
-panorama_E54F588D_F4C0_FEBC_41D2_17D8D33459DC.label = Chemistry Lab
-panorama_E54F5C82_F4C0_D6A5_41D3_073DAA850915.label = Computer Lab 1
-panorama_E54F40EB_F4C0_4E64_41DD_932923B8E669.label = Computer Lab 2
+panorama_F7DD4399_F9FA_F450_418F_EF4016E76AA7.label = Assembly Area
+panorama_F42B33DE_F9F9_BBD0_41E2_11732EBEE3AC.label = Biology Lab
+panorama_F42EC404_F9FA_9C30_41D2_B0F87D913152.label = Chemistry Lab
+panorama_E54F5C82_F4C0_D6A5_41D3_073DAA850915.label = Computer Lab - Primary
+panorama_E54F40EB_F4C0_4E64_41DD_932923B8E669.label = Computer Lab - Secondary
 panorama_E54FC54B_F4C0_77BB_41E0_91D3911A72A5.label = Computer Lab 3
-panorama_E54F53A7_F4C0_D2EB_41CB_894176C9EF59.label = Front Entrance
-panorama_E54EE831_F4C0_BDE7_41ED_DF27450CFD8D.label = Front Entrance
-panorama_E54EBEC9_F4C0_D2A4_41E1_410B1EB85E8E.label = Physics Lab
-panorama_E54FAB24_F4C0_53EC_41ED_70E2EA261D70.label = Pre-KG Classroom
-panorama_E6C85312_F4C0_53A4_41EA_A641B36ADF50.label = School Entrance
-panorama_E54F4D95_F4C0_56AF_41D1_F5895CEE1FE6.label = School Entrance
+panorama_F74705B9_F9FA_9C50_41EE_09D5961111BB.label = Entrance
+panorama_F4211998_F9F9_B450_41E3_A6F8CE6403A7.label = Indoor Assembly Hall
+panorama_E54FAB24_F4C0_53EC_41ED_70E2EA261D70.label = KG Classroom
+panorama_F429E52D_F9FB_BC70_41EF_24D953816DE3.label = Kinder Garden Entrance
+panorama_F43C74AE_F9FA_FC71_41E9_845404801ED1.label = Physics Lab
+panorama_F42EB1C5_F9FA_9430_41B6_BCA97E2E1D1F.label = Primary Block
 
 ## Skin
 
