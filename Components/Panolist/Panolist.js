@@ -537,6 +537,24 @@
   let allPanoramas = [];
   let selectedIndex = -1;
 
+  // ── Hardcoded mainPlayList order from 3DVista export ──
+  // This MUST match the "items" array in mainPlayList inside script_general.js.
+  // Index = playlist position used by tour.setMainMediaByIndex().
+  const PLAYLIST_ORDER = [
+    { id: "F04FA293_FF60_B032_41E6_C4652791653B",  label: "Entrance" },
+    { id: "F050167D_FF60_F0F6_41DE_04EAABE09C99",  label: "Assembly Area" },
+    { id: "F050EA9C_FF60_B037_41E0_C406F551BA9C",  label: "Kinder Garden Entrance" },
+    { id: "F054FCFC_FF60_71F6_41EC_00DA9E150E90",  label: "Primary Block" },
+    { id: "F43C74AE_F9FA_FC71_41E9_845404801ED1",  label: "Physics Lab" },
+    { id: "F42EC404_F9FA_9C30_41D2_B0F87D913152",  label: "Chemistry Lab" },
+    { id: "F42B33DE_F9F9_BBD0_41E2_11732EBEE3AC",  label: "Biology Lab" },
+    { id: "F4211998_F9F9_B450_41E3_A6F8CE6403A7",  label: "Indoor Assembly Hall" },
+    { id: "E54F5C82_F4C0_D6A5_41D3_073DAA850915",  label: "Computer Lab - Primary" },
+    { id: "E54F40EB_F4C0_4E64_41DD_932923B8E669",  label: "Computer Lab - Secondary" },
+    { id: "E54FC54B_F4C0_77BB_41E0_91D3911A72A5",  label: "Computer Lab 3" },
+    { id: "E54FAB24_F4C0_53EC_41ED_70E2EA261D70",  label: "KG Classroom" }
+  ];
+
   function renderList(items, query = "") {
     contentArea.innerHTML = '';
     if (!items || items.length === 0) {
@@ -592,94 +610,38 @@
     renderList(filtered, q);
   });
 
-  // --- Async Data Fetching ---
-  async function loadData() {
+  // --- Build panorama list from hardcoded order + local thumbnails ---
+  function loadData() {
     try {
-      const endpoint = "https://pano-fetcher.onrender.com";
-
-      // 1. Get script & labels
-      const [scriptCode, enTxt] = await Promise.all([
-        fetch("./script_general.js").then(r => r.text()).catch(() => null),
-        fetch("./locale/en.txt").then(r => r.text()).catch(() => null)
-      ]);
-
-      if (!enTxt) throw new Error("Locale missing");
-
-      // 2. Parse Labels
-      const labelMap = {};
-      const fallbackOrder = [];
-      enTxt.split("\n").forEach(line => {
-        const m = line.match(/panorama_([A-Z0-9_]+)\.label\s*=\s*(.+)/);
-        if (m) {
-          const id = m[1].trim();
-          labelMap[id] = m[2].trim().replace(/^"|"$/g, "");
-          fallbackOrder.push(id);
-        }
-      });
-
-      // Determine exact order from script_general.js mainPlayList
-      let orderedIds = [];
-      try {
-        // Find the mainPlayList block robustly. It ends with "class":"PlayList"
-        const match = scriptCode.match(/"id":"mainPlayList","items":\[(.*?)\](?:,"[^"]+":[^,]+)*,"class":"PlayList"/);
-        if (match) {
-          const itemsStr = match[1];
-          const tokens = itemsStr.match(/this\.PanoramaPlayListItem_[A-Za-z0-9_]+|"media":"this\.panorama_([A-Z0-9_]+)"/g) || [];
-
-          const refMap = {};
-          const playListItems = scriptCode.split('"class":"PanoramaPlayListItem"');
-          for (const block of playListItems) {
-            const idMatch = block.match(/"id":"(PanoramaPlayListItem_[A-Z0-9_]+)"/);
-            const mediaMatch = block.match(/"media":"this\.panorama_([A-Z0-9_]+)"/);
-            if (idMatch && mediaMatch) {
-              refMap["this." + idMatch[1]] = mediaMatch[1];
-            }
+      // Use en.txt labels if available (for locale support), otherwise use hardcoded labels
+      fetch("./locale/en.txt").then(r => r.text()).then(enTxt => {
+        const labelMap = {};
+        enTxt.split("\n").forEach(line => {
+          const m = line.match(/panorama_([A-Z0-9_]+)\.label\s*=\s*(.+)/);
+          if (m) {
+            labelMap[m[1].trim()] = m[2].trim().replace(/^"|"$/g, "");
           }
+        });
 
-          for (const token of tokens) {
-            if (token.startsWith('"media"')) {
-              const mId = token.match(/"media":"this\.panorama_([A-Z0-9_]+)"/);
-              if (mId) orderedIds.push(mId[1]);
-            } else {
-              if (refMap[token]) orderedIds.push(refMap[token]);
-            }
-          }
-        }
-      } catch (e) { console.warn("Could not parse order", e); }
+        // Build panorama list in mainPlayList order
+        allPanoramas = PLAYLIST_ORDER.map((entry, idx) => ({
+          id: entry.id,
+          label: labelMap[entry.id] || entry.label,
+          playlistIndex: idx,
+          thumb: "media/panorama_" + entry.id + "_t.webp"
+        }));
 
-      // Filter out any invalid items
-      orderedIds = orderedIds.filter(id => labelMap[id]);
-
-      // Append any remaining missing items from the fallback order
-      fallbackOrder.forEach(id => {
-        if (!orderedIds.includes(id)) orderedIds.push(id);
+        renderList(allPanoramas);
+      }).catch(function () {
+        // Fallback: use hardcoded labels + local thumbnails
+        allPanoramas = PLAYLIST_ORDER.map((entry, idx) => ({
+          id: entry.id,
+          label: entry.label,
+          playlistIndex: idx,
+          thumb: "media/panorama_" + entry.id + "_t.webp"
+        }));
+        renderList(allPanoramas);
       });
-
-      const labelOrder = orderedIds.map((id, idx) => ({ id, label: labelMap[id], playlistIndex: idx }));
-
-      // 3. Get Thumbnails
-      let thumbnails = [];
-      if (scriptCode) {
-        try {
-          const res = await fetch(endpoint, {
-            method: "POST",
-            headers: { "Content-Type": "text/plain" },
-            body: scriptCode,
-          });
-          if (res.ok) {
-            const json = await res.json();
-            thumbnails = json.thumbnails || [];
-          }
-        } catch (e) { }
-      }
-
-      // 4. Merge
-      allPanoramas = labelOrder.map(item => {
-        const t = thumbnails.find(x => x && x.id && x.id.includes(item.id));
-        return t ? { ...item, thumb: t.thumb } : item;
-      });
-
-      renderList(allPanoramas);
 
     } catch (err) {
       console.error(err);

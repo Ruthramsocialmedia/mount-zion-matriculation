@@ -128,6 +128,20 @@ const montfortLogo = (function () {
             color: #ffffff;
         }
         
+        .school-name-location {
+            display: block;
+            font-size: 9px;
+            font-weight: 600;
+            opacity: 0.9;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+            color: #ffffff;
+            margin-top: 1px;
+            text-transform: uppercase;
+        }
+        
         /* Hover States */
         .logo-card:hover {
             transform: translateY(-2px) scale(1.02);
@@ -246,6 +260,10 @@ const montfortLogo = (function () {
                 font-size: 8px;
             }
             
+            .school-name-location {
+                font-size: 8px;
+            }
+            
             @keyframes gentle-float {
                 0%, 100% {
                     transform: translateY(0px);
@@ -304,6 +322,13 @@ const montfortLogo = (function () {
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
+            
+            .school-name-location {
+                font-size: 7px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
         }
         
         @media (max-width: 360px) {
@@ -335,6 +360,10 @@ const montfortLogo = (function () {
             }
             
             .school-name-sub {
+                font-size: 6.5px;
+            }
+            
+            .school-name-location {
                 font-size: 6.5px;
             }
         }
@@ -407,7 +436,7 @@ const montfortLogo = (function () {
     const logoCard = document.createElement("div");
     logoCard.className = "logo-card";
     logoCard.setAttribute("role", "img");
-    logoCard.setAttribute("aria-label", "Mount Zion Matric Higher Secondary School Logo");
+    logoCard.setAttribute("aria-label", "Mount Zion International School - CBSC Logo");
     logoCard.tabIndex = 0; // Make it focusable for accessibility
 
     // Create overlay div
@@ -418,7 +447,7 @@ const montfortLogo = (function () {
     const img = document.createElement("img");
     img.className = "logo-image";
     img.src = "Components/Logo/Assets/Logo.png";
-    img.alt = "Mount Zion Matric Higher Secondary School Logo";
+    img.alt = "Mount Zion International School - CBSC Logo";
     img.loading = "eager";
 
     // Create school name element
@@ -433,9 +462,14 @@ const montfortLogo = (function () {
     schoolNameSub.className = "school-name-sub";
     schoolNameSub.textContent = "MATRIC HIGHER SECONDARY SCHOOL";
 
+    const schoolNameLocation = document.createElement("span");
+    schoolNameLocation.className = "school-name-location";
+    schoolNameLocation.textContent = "Rajagopalapuram, Pudukkottai";
+
     // Build structure
     schoolName.appendChild(schoolNameMain);
     schoolName.appendChild(schoolNameSub);
+    schoolName.appendChild(schoolNameLocation);
     logoCard.appendChild(overlay);
     logoCard.appendChild(img);
     logoCard.appendChild(schoolName);
@@ -450,7 +484,7 @@ const montfortLogo = (function () {
 
     // Add error handling for image
     img.onerror = function () {
-        console.warn("Mount Zion Matric Higher Secondary School logo image failed to load");
+        console.warn("Mount Zion International School - CBSC logo image failed to load");
         const fallbackText = document.createElement("div");
         fallbackText.style.cssText = `
             position: relative;
