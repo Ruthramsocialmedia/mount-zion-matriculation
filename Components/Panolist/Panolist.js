@@ -543,15 +543,15 @@
   const PLAYLIST_ORDER = [
     { id: "F04FA293_FF60_B032_41E6_C4652791653B",  label: "Entrance" },
     { id: "F050167D_FF60_F0F6_41DE_04EAABE09C99",  label: "Assembly Area" },
-    { id: "F050EA9C_FF60_B037_41E0_C406F551BA9C",  label: "Kinder Garden Entrance" },
-    { id: "F054FCFC_FF60_71F6_41EC_00DA9E150E90",  label: "Primary Block" },
+    { id: "F050EA9C_FF60_B037_41E0_C406F551BA9C",  label: "Primary Block" },
+    { id: "F054FCFC_FF60_71F6_41EC_00DA9E150E90",  label: "Higher Secondary Block" },
     { id: "F43C74AE_F9FA_FC71_41E9_845404801ED1",  label: "Physics Lab" },
     { id: "F42EC404_F9FA_9C30_41D2_B0F87D913152",  label: "Chemistry Lab" },
     { id: "F42B33DE_F9F9_BBD0_41E2_11732EBEE3AC",  label: "Biology Lab" },
     { id: "F4211998_F9F9_B450_41E3_A6F8CE6403A7",  label: "Indoor Assembly Hall" },
-    { id: "E54F5C82_F4C0_D6A5_41D3_073DAA850915",  label: "Computer Lab - Primary" },
-    { id: "E54F40EB_F4C0_4E64_41DD_932923B8E669",  label: "Computer Lab - Secondary" },
-    { id: "E54FC54B_F4C0_77BB_41E0_91D3911A72A5",  label: "Computer Lab 3" },
+    { id: "E54F5C82_F4C0_D6A5_41D3_073DAA850915",  label: "Computer Lab - Higher Secondary" },
+    { id: "E54F40EB_F4C0_4E64_41DD_932923B8E669",  label: "Computer Lab - Primary" },
+    { id: "E54FC54B_F4C0_77BB_41E0_91D3911A72A5",  label: "Computer Lab" },
     { id: "E54FAB24_F4C0_53EC_41ED_70E2EA261D70",  label: "KG Classroom" }
   ];
 
