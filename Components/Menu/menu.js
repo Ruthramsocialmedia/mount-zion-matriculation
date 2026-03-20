@@ -4,51 +4,113 @@
         {
             label: "Explore",
             items: [
-                { icon: "fa-house", label: "Home", id: "menu-home", url: "https://mount-zion-schools.netlify.app/" },
-                { icon: "fa-street-view", label: "Google Street View", id: "menu-street-view" },
+                {
+                    icon: "fa-house",
+                    label: "Home",
+                    id: "menu-home",
+                    url: "https://mount-zion-schools.netlify.app/",
+                },
+                {
+                    icon: "fa-panorama",
+                    label: "Explore Classrooms & Facilities",
+                    id: "menu-panorama",
+                },
+                {
+                    icon: "fa-street-view",
+                    label: "Google Street View",
+                    id: "menu-street-view",
+                },
                 { icon: "fa-magnifying-glass", label: "Search", id: "menu-search" },
-                { icon: "fa-panorama", label: "Explore Classrooms & Facilities", id: "menu-panorama" }
-            ]
+            ],
         },
         {
             label: "About",
             items: [
-                { icon: "fa-users", label: "Our Management", id: "menu-management", url: "https://mzhss.edu.in/index.php/our-management/" },
-                { icon: "fa-star", label: "Features", id: "menu-features", url: "https://mzhss.edu.in/index.php/features/" },
-                { icon: "fa-masks-theater", label: "Extra Curricular Activity", id: "menu-extra-curricular", url: "https://mzhss.edu.in/index.php/extra-curricular/" },
-                { icon: "fa-book", label: "Our Curriculum", id: "menu-curriculum", url: "https://mzhss.edu.in/index.php/curriculum/" }
-            ]
+                {
+                    icon: "fa-users",
+                    label: "Our Management",
+                    id: "menu-management",
+                    url: "https://mzhss.edu.in/index.php/our-management/",
+                },
+                {
+                    icon: "fa-star",
+                    label: "Features",
+                    id: "menu-features",
+                    url: "https://mzhss.edu.in/index.php/features/",
+                },
+                {
+                    icon: "fa-masks-theater",
+                    label: "Extra Curricular Activity",
+                    id: "menu-extra-curricular",
+                    url: "https://mzhss.edu.in/index.php/extra-curricular/",
+                },
+                {
+                    icon: "fa-book",
+                    label: "Our Curriculum",
+                    id: "menu-curriculum",
+                    url: "https://mzhss.edu.in/index.php/curriculum/",
+                },
+            ],
         },
         {
             label: "Facilities",
             items: [
-                { icon: "fa-building", label: "Infrastructure", id: "menu-infrastructure", url: "https://mzhss.edu.in/index.php/infrastructure/" },
-                { icon: "fa-futbol", label: "Sports Facility", id: "menu-sports", url: "https://mzhss.edu.in/index.php/sports-facilities/" },
-                { icon: "fa-bus", label: "Transport Facilities", id: "menu-transport", url: "https://mzhss.edu.in/index.php/transport-facilities/" },
-                { icon: "fa-flask", label: "Lab", id: "menu-lab", url: "https://mzhss.edu.in/index.php/laboratories/" }
-            ]
+                {
+                    icon: "fa-building",
+                    label: "Infrastructure",
+                    id: "menu-infrastructure",
+                    url: "https://mzhss.edu.in/index.php/infrastructure/",
+                },
+                {
+                    icon: "fa-futbol",
+                    label: "Sports Facility",
+                    id: "menu-sports",
+                    url: "https://mzhss.edu.in/index.php/sports-facilities/",
+                },
+                {
+                    icon: "fa-bus",
+                    label: "Transport Facilities",
+                    id: "menu-transport",
+                    url: "https://mzhss.edu.in/index.php/transport-facilities/",
+                },
+                {
+                    icon: "fa-flask",
+                    label: "Lab",
+                    id: "menu-lab",
+                    url: "https://mzhss.edu.in/index.php/laboratories/",
+                },
+            ],
         },
         {
             label: "Information",
             items: [
                 { icon: "fa-expand", label: "Fullscreen Mode", id: "menu-fullscreen" },
-                { icon: "fa-circle-info", label: "Info", id: "menu-visitor", url: "https://mzhss.edu.in/" }
-            ]
+                {
+                    icon: "fa-circle-info",
+                    label: "Info",
+                    id: "menu-visitor",
+                    url: "https://mzhss.edu.in/",
+                },
+            ],
         },
         {
             label: "Connect",
             items: [
                 { icon: "fa-envelope", label: "Contact Us", id: "menu-contact" },
-                { icon: "fa-location-dot", label: "Location & Directions", id: "menu-location" }
-            ]
-        }
+                {
+                    icon: "fa-location-dot",
+                    label: "Location & Directions",
+                    id: "menu-location",
+                },
+            ],
+        },
     ];
 
     // Flat list for legacy compatibility
-    const menuItems = menuCategories.flatMap(c => c.items);
+    const menuItems = menuCategories.flatMap((c) => c.items);
 
     // ─── Inject CSS ─────────────────────────────────────────────
-    const css = document.createElement('style');
+    const css = document.createElement("style");
     css.textContent = `
         /* ═════════════════════════════════════════════
            MENU — Brand-Aligned Premium Design
@@ -444,42 +506,44 @@
     // ─── Build HTML ─────────────────────────────────────────────
 
     // Toggle Button
-    const toggleBtn = document.createElement('button');
-    toggleBtn.className = 'menu-toggle';
-    toggleBtn.id = 'menu-toggle';
-    toggleBtn.setAttribute('aria-label', 'Toggle Menu');
+    const toggleBtn = document.createElement("button");
+    toggleBtn.className = "menu-toggle";
+    toggleBtn.id = "menu-toggle";
+    toggleBtn.setAttribute("aria-label", "Toggle Menu");
     toggleBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
 
     // Start hidden below screen
-    toggleBtn.style.transform = 'translateY(150px)';
-    toggleBtn.style.opacity = '0';
+    toggleBtn.style.transform = "translateY(150px)";
+    toggleBtn.style.opacity = "0";
     document.body.appendChild(toggleBtn);
 
     // Slide menu toggle in from bottom
     setTimeout(function () {
-        toggleBtn.style.transform = 'translateY(0)';
-        toggleBtn.style.opacity = '1';
+        toggleBtn.style.transform = "translateY(0)";
+        toggleBtn.style.opacity = "1";
         // Clean up inline styles after transition so hover/active work
         setTimeout(function () {
-            toggleBtn.style.transform = '';
-            toggleBtn.style.opacity = '';
+            toggleBtn.style.transform = "";
+            toggleBtn.style.opacity = "";
         }, 350);
     }, 200);
 
     // Menu Panel
-    const panel = document.createElement('div');
-    panel.className = 'menu-panel';
-    panel.id = 'menu-panel';
+    const panel = document.createElement("div");
+    panel.className = "menu-panel";
+    panel.id = "menu-panel";
 
     // Build categorized items with stagger
     let itemIndex = 0;
-    let itemsHTML = '';
-    menuCategories.forEach(cat => {
+    let itemsHTML = "";
+    menuCategories.forEach((cat) => {
         itemsHTML += `<div class="menu-category-label">${cat.label}</div>`;
-        cat.items.forEach(item => {
-            const urlAttr = item.url ? ` data-url="${item.url}"` : '';
-            const iconClass = item.url ? 'fa-arrow-up-right-from-square' : 'fa-chevron-right';
-            const arrowIcon = `<i class="fa-solid ${iconClass} menu-item-arrow ${item.url ? 'external' : ''}"></i>`;
+        cat.items.forEach((item) => {
+            const urlAttr = item.url ? ` data-url="${item.url}"` : "";
+            const iconClass = item.url
+                ? "fa-arrow-up-right-from-square"
+                : "fa-chevron-right";
+            const arrowIcon = `<i class="fa-solid ${iconClass} menu-item-arrow ${item.url ? "external" : ""}"></i>`;
 
             itemsHTML += `
                 <button class="menu-item" id="${item.id}" data-index="${itemIndex}"${urlAttr} style="animation-delay: ${itemIndex * 35}ms">
@@ -513,98 +577,100 @@
     // ─── Events ─────────────────────────────────────────────────
     let isOpen = false;
 
-    toggleBtn.addEventListener('click', () => {
+    toggleBtn.addEventListener("click", () => {
         isOpen = !isOpen;
-        toggleBtn.classList.toggle('open', isOpen);
-        panel.classList.toggle('open', isOpen);
-        const icon = toggleBtn.querySelector('i');
-        icon.classList.toggle('fa-bars', !isOpen);
-        icon.classList.toggle('fa-xmark', isOpen);
+        toggleBtn.classList.toggle("open", isOpen);
+        panel.classList.toggle("open", isOpen);
+        const icon = toggleBtn.querySelector("i");
+        icon.classList.toggle("fa-bars", !isOpen);
+        icon.classList.toggle("fa-xmark", isOpen);
     });
 
     // Explicit Close Button
-    const explicitCloseBtn = document.getElementById('menu_close');
-    explicitCloseBtn.addEventListener('click', () => {
+    const explicitCloseBtn = document.getElementById("menu_close");
+    explicitCloseBtn.addEventListener("click", () => {
         isOpen = false;
-        toggleBtn.classList.remove('open');
-        panel.classList.remove('open');
-        const icon = toggleBtn.querySelector('i');
-        icon.classList.replace('fa-xmark', 'fa-bars');
+        toggleBtn.classList.remove("open");
+        panel.classList.remove("open");
+        const icon = toggleBtn.querySelector("i");
+        icon.classList.replace("fa-xmark", "fa-bars");
     });
 
     // Close when clicking outside (Ignoring Components)
-    document.addEventListener('click', (e) => {
+    document.addEventListener("click", (e) => {
         // Exceptions: Don't close if clicking inside these components
         if (
-            e.target.closest('.contact-overlay') ||
-            e.target.closest('.gsv-overlay') ||     // GSV Explore
-            e.target.closest('.pano-modal') ||      // Panolist Modal
-            e.target.closest('#pano-backdrop') ||   // Panolist Backdrop
-            e.target.closest('.search-card') ||     // Search Modal
-            e.target.closest('#search-backdrop') || // Search Backdrop
-            e.target.closest('.gsv-action-backdrop') // GSV Action Box
+            e.target.closest(".contact-overlay") ||
+            e.target.closest(".gsv-overlay") || // GSV Explore
+            e.target.closest(".pano-modal") || // Panolist Modal
+            e.target.closest("#pano-backdrop") || // Panolist Backdrop
+            e.target.closest(".search-card") || // Search Modal
+            e.target.closest("#search-backdrop") || // Search Backdrop
+            e.target.closest(".gsv-action-backdrop") // GSV Action Box
         ) {
             return;
         }
 
-        const isClickInsideMenu = panel.contains(e.target) || toggleBtn.contains(e.target);
+        const isClickInsideMenu =
+            panel.contains(e.target) || toggleBtn.contains(e.target);
 
         if (isOpen && !isClickInsideMenu) {
             isOpen = false;
-            toggleBtn.classList.remove('open');
-            panel.classList.remove('open');
-            const icon = toggleBtn.querySelector('i');
-            icon.classList.replace('fa-xmark', 'fa-bars');
+            toggleBtn.classList.remove("open");
+            panel.classList.remove("open");
+            const icon = toggleBtn.querySelector("i");
+            icon.classList.replace("fa-xmark", "fa-bars");
         }
     });
 
     // Menu item click
-    const items = panel.querySelectorAll('.menu-item');
-    items.forEach(item => {
-        item.addEventListener('click', () => {
-
+    const items = panel.querySelectorAll(".menu-item");
+    items.forEach((item) => {
+        item.addEventListener("click", () => {
             // Check if it's a Link or Action vs Component
             const isLink = !!item.dataset.url;
-            const isAction = item.id === 'menu-fullscreen' || item.id === 'menu-home';
+            const isAction = item.id === "menu-fullscreen" || item.id === "menu-home";
             // Treat actions like links for highlight purposes (Flash only)
             const shouldFlash = isLink || isAction;
 
             if (shouldFlash) {
                 // Flash highlight (Toggle visual only)
-                item.classList.add('active');
-                setTimeout(() => item.classList.remove('active'), 300);
+                item.classList.add("active");
+                setTimeout(() => item.classList.remove("active"), 300);
             } else {
                 // Components (Explore, Contact, etc.) -> Persistent Active State
-                items.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
+                items.forEach((i) => i.classList.remove("active"));
+                item.classList.add("active");
             }
 
             // Handle External URLs
             if (item.dataset.url) {
-                window.open(item.dataset.url, '_blank');
+                window.open(item.dataset.url, "_blank");
                 if (window.innerWidth <= 480) {
                     // close menu on mobile
                     isOpen = false;
-                    toggleBtn.classList.remove('open');
-                    panel.classList.remove('open');
-                    const icon = toggleBtn.querySelector('i');
-                    icon.classList.replace('fa-xmark', 'fa-bars');
+                    toggleBtn.classList.remove("open");
+                    panel.classList.remove("open");
+                    const icon = toggleBtn.querySelector("i");
+                    icon.classList.replace("fa-xmark", "fa-bars");
                 }
                 return;
             }
 
-            const event = new CustomEvent('menuItemClick', {
+            const event = new CustomEvent("menuItemClick", {
                 detail: {
                     id: item.id,
-                    label: item.querySelector('.menu-item-label').textContent
-                }
+                    label: item.querySelector(".menu-item-label").textContent,
+                },
             });
             document.dispatchEvent(event);
 
             // Fullscreen Toggle
-            if (item.id === 'menu-fullscreen') {
+            if (item.id === "menu-fullscreen") {
                 if (!document.fullscreenElement) {
-                    document.documentElement.requestFullscreen().catch(e => console.log(e));
+                    document.documentElement
+                        .requestFullscreen()
+                        .catch((e) => console.log(e));
                 } else {
                     if (document.exitFullscreen) {
                         document.exitFullscreen();
@@ -613,22 +679,25 @@
             }
 
             // Auto-close menu on mobile, but NOT for search or GSV (overlays)
-            if (window.innerWidth <= 480 && item.id !== 'menu-search' && item.id !== 'menu-street-view') {
+            if (
+                window.innerWidth <= 480 &&
+                item.id !== "menu-search" &&
+                item.id !== "menu-street-view"
+            ) {
                 isOpen = false;
-                toggleBtn.classList.remove('open');
-                panel.classList.remove('open');
-                const icon = toggleBtn.querySelector('i');
-                icon.classList.replace('fa-xmark', 'fa-bars');
+                toggleBtn.classList.remove("open");
+                panel.classList.remove("open");
+                const icon = toggleBtn.querySelector("i");
+                icon.classList.replace("fa-xmark", "fa-bars");
             }
         });
     });
 
     // Listen for Deactivation (from components)
-    document.addEventListener('menuItemDeactivate', (e) => {
+    document.addEventListener("menuItemDeactivate", (e) => {
         if (e.detail && e.detail.id) {
             const item = document.getElementById(e.detail.id);
-            if (item) item.classList.remove('active');
+            if (item) item.classList.remove("active");
         }
     });
-
 })();

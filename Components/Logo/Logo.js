@@ -131,7 +131,7 @@ const montfortLogo = (function () {
         .school-name-location {
             display: block;
             font-size: 9px;
-            font-weight: 600;
+            font-weight: lighter;
             opacity: 0.9;
             white-space: nowrap;
             overflow: hidden;
