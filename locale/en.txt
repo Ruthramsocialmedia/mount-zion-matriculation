@@ -1,6 +1,24 @@
 #: locale=en
 
+## Hotspot
+
+### Text
+HotspotPanoramaOverlayTextImage_0A1D2541_19E9_11F7_4191_B16D2EE45AF2.text = Assembly Area
+HotspotPanoramaOverlayTextImage_0AA106A0_19E7_10B5_4194_EBCA356C4DEB.text = Assembly Area
+HotspotPanoramaOverlayTextImage_0AA6EAC5_19E9_F0FC_419B_62D666FF6932.text = Entrance
+HotspotPanoramaOverlayTextImage_0DF17E7B_19EB_338B_419B_E03826AB001D.text = KG Classroom
+HotspotPanoramaOverlayTextImage_0D3E56A3_19EF_10B4_41B1_6EEC9CBC6DBF.text = Primary Block
+HotspotPanoramaOverlayTextImage_0A53DDEC_19E7_108D_41B5_B4AD0CA16C0D.text = Primary Block
+
 ## Media
+
+### Image
+imlevel_0FDC8930_19D8_F195_41B6_3685C70272EB.url = media/panorama_E54FAB24_F4C0_53EC_41ED_70E2EA261D70_HS_qvz1m1rf_en.webp
+imlevel_0CBF66AC_19D8_F08C_41B9_7F590DBC6328.url = media/panorama_F04FA293_FF60_B032_41E6_C4652791653B_HS_19moqjo4_en.webp
+imlevel_0C709767_19D8_F1BC_4153_A3D17233A50C.url = media/panorama_F050167D_FF60_F0F6_41DE_04EAABE09C99_HS_9q392ug6_en.webp
+imlevel_0C71C7CF_19D8_F08C_41A5_338DBC092AF3.url = media/panorama_F050167D_FF60_F0F6_41DE_04EAABE09C99_HS_o4qk10fm_en.webp
+imlevel_0FD9D8B8_19D8_F095_41A7_DF064B9B6225.url = media/panorama_F050EA9C_FF60_B037_41E0_C406F551BA9C_HS_4vbm5ghx_en.webp
+imlevel_0FD82881_19D8_FF74_41AE_197933682375.url = media/panorama_F050EA9C_FF60_B037_41E0_C406F551BA9C_HS_lgvbruyy_en.webp
 
 ### Title
 panorama_F050167D_FF60_F0F6_41DE_04EAABE09C99.label = Assembly Area
