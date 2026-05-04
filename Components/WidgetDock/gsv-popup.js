@@ -18,7 +18,7 @@
     function s(el, styles) { Object.assign(el.style, styles); }
 
     /* ─── GSV Iframe URL ─── */
-    const GSV_URL = "https://www.google.com/maps/embed?pb=!4v1773894128625!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQ3A2dHVnNGdF!2m2!1d10.29539444450159!2d78.76225519795156!3f185.9805093672628!4f0.6916854146053169!5f0.7820865974627469";
+    const GSV_URL = "https://www.google.com/maps/embed?pb=!4v1777869963655!6m8!1m7!1sCAoSHENJQUJJaER4bkZXYnRKVFpXUGYwREp4c1pzSzY.!2m2!1d10.36419836975969!2d78.8052162336929!3f111.6034466903604!4f12.59047100930843!5f0.7820865974627469";
 
     /* ─── Open Popup ─── */
     function openGsvPopup() {
