@@ -24,6 +24,12 @@
             ],
         },
         {
+            label: "GSV — Sports Facility",
+            items: [
+                { icon: "fa-volleyball", label: "Playground", id: "menu-gsv-playground" },
+            ],
+        },
+        {
             label: "About",
             items: [
                 {
