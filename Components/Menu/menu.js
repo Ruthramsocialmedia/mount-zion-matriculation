@@ -688,7 +688,8 @@
             if (
                 window.innerWidth <= 480 &&
                 item.id !== "menu-search" &&
-                item.id !== "menu-street-view"
+                item.id !== "menu-street-view" &&
+                item.id !== "menu-gsv-playground"
             ) {
                 isOpen = false;
                 toggleBtn.classList.remove("open");

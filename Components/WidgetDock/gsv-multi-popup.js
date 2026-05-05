@@ -27,7 +27,7 @@
     };
 
     /* ─── Open Popup ─── */
-    function openGsvMultiPopup(iframeSrc, titleLabel) {
+    function openGsvMultiPopup(iframeSrc, titleLabel, menuItemId) {
         const backdrop = document.createElement("div");
         s(backdrop, {
             position: "fixed",
@@ -205,6 +205,12 @@
                 if (backdrop.parentNode) backdrop.parentNode.removeChild(backdrop);
             }, 400);
             document.removeEventListener("keydown", escHandler);
+            // ── Deactivate the menu item that opened this popup ──
+            if (menuItemId) {
+                document.dispatchEvent(new CustomEvent("menuItemDeactivate", {
+                    detail: { id: menuItemId }
+                }));
+            }
         }
 
         backdrop.addEventListener("click", function (e) {
@@ -216,7 +222,7 @@
     document.addEventListener("menuItemClick", function (e) {
         if (e.detail && GSV_ITEMS[e.detail.id]) {
             const item = GSV_ITEMS[e.detail.id];
-            openGsvMultiPopup(item.url, item.label);
+            openGsvMultiPopup(item.url, item.label, e.detail.id);
         }
     });
 
